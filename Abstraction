@@ -1,0 +1,45 @@
+using System;
+
+abstract class Vehicle
+{
+    // Abstract method (must be implemented by derived classes)
+    public abstract void Start();
+
+    // Concrete method (already implemented)
+    public void Stop()
+    {
+        Console.WriteLine("Vehicle stopped.");
+    }
+}
+
+// Car class inherits from Vehicle
+class Car : Vehicle
+{
+    public override void Start()
+    {
+        Console.WriteLine("Car is starting with a key.");
+    }
+}
+
+// Bike class inherits from Vehicle
+class Bike : Vehicle
+{
+    public override void Start()
+    {
+        Console.WriteLine("Bike is starting with a self-start button.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Vehicle myCar = new Car();
+        myCar.Start();  // Output: Car is starting with a key.
+        myCar.Stop();   // Output: Vehicle stopped.
+
+        Vehicle myBike = new Bike();
+        myBike.Start(); // Output: Bike is starting with a self-start button.
+        myBike.Stop();  // Output: Vehicle stopped.
+    }
+}
