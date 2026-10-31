@@ -1,0 +1,54 @@
+using System;
+
+public class BankAccount
+{
+  private double balance;
+
+  public BankAccount(double initialbalance)
+  {
+    balance = initialbalance;
+  }
+
+  public void deposit(double amount)
+  {
+    if(amount > 0)
+    {
+      balance = balance + amount;
+      Console.WriteLine($"{amount} is deposited and new updated balance is {balance}.");
+    }
+    else
+    {
+      Console.WriteLine("Amount must be positive");
+    }
+  }
+
+  public void withdraw(double amount)
+  {
+    if(amount > 0 && balance > amount)
+    {
+      balance = balance - amount;
+      Console.WriteLine($"{amount} is withdrawn and new updated balance is {balance}.");
+    }
+    else
+    {
+      Console.WriteLine("Balance is less than specified amount to withdraw");
+    }
+  }
+
+  public double getbalance()
+  {
+    return balance;
+  }
+  
+}
+
+public class program
+{
+  public static void Main()
+  {
+    BankAccount b1 = new BankAccount(1000);
+    b1.deposit(100);
+    b1.withdraw(100);
+    Console.WriteLine($"Final balance is {b1.getbalance()}.");
+  }
+}
